@@ -5,7 +5,7 @@
 ## 文件结构
 
 - `css/game.css`（7.9 KB）
-- `index.html`（3.4 KB）
+- `index.html`（3.5 KB）
 - `js/audio.js`（3.4 KB）
 - `js/config.js`（1.3 KB）
 - `js/entities.js`（3.4 KB）

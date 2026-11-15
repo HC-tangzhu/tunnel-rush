@@ -10,7 +10,7 @@ export const CFG = {
   limitWork: 11.1,              // 施工区限速 40 km/h
   maxSpeed: 33,                 // 车辆极速 ≈119 km/h
   startSpeed: 14,
-  targetRate: 14,               // 长按油门时目标车速上升速率（米/秒²）
+  targetRate: 9,                // 长按油门时目标车速上升速率（米/秒²）
   accel: 5.5,                   // 实际车速跟随目标车速的加速度
   brake: 14,
   finishMeters: 3000,           // 贯通里程
