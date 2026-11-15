@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>限速八十 · 隧道狂飙</title>
+<meta name="description" content="公路隧道里的小游戏：一边赶工期，一边守住限速 80 km/h。三公里贯通挑战。" />
+<meta name="theme-color" content="#05070b" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1119'/%3E%3Cpath d='M5 23h22' stroke='%235fb3ff' stroke-width='3'/%3E%3Ccircle cx='16' cy='12' r='5' fill='%23f4b942'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/game.css" />
+</head>
+<body>
+<div id="stage">
+  <canvas id="game"></canvas>
+
+  <div id="hud" hidden>
+    <div class="hud-row">
+      <div class="hud-block">
+        <div class="big"><span id="meters">0</span><small>m</small></div>
+        <div class="speed"><span id="speed">0</span><small>km/h</small><span id="limitTag" class="limit-tag">限速 80</span></div>
+      </div>
+      <div class="hud-block right">
+        <div class="chip">工分 <b id="chips">0</b></div>
+        <div class="chip">违规 <b id="viol">0</b></div>
+        <button id="muteBtn" class="icon-btn" type="button" aria-label="音效开关">🔊</button>
+      </div>
+    </div>
+    <div class="cond-wrap">
+      <div class="cond-bar"><i id="condFill"></i></div>
+      <span id="condText">车况 100</span>
+    </div>
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <div id="touchPad" class="touch-pad" hidden>
+    <div class="pad-group">
+      <button class="pad-btn" data-act="left" type="button" aria-label="向左变道">◀</button>
+      <button class="pad-btn" data-act="right" type="button" aria-label="向右变道">▶</button>
+    </div>
+    <div class="pad-group">
+      <button class="pad-btn wide" data-act="brake" type="button">刹车</button>
+      <button class="pad-btn wide primary" data-act="gas" type="button">油门</button>
+    </div>
+  </div>
+
+  <section id="menu" class="screen">
+    <div class="card">
+      <p class="kicker">公路隧道 · 施工作业模拟</p>
+      <h1>限速八十</h1>
+      <p class="sub">隧道狂飙 · 3000 m 贯通挑战</p>
+      <ul class="rules">
+        <li><b>↑ / W</b> 加速　<b>↓ / S</b> 刹车　<b>← →</b> 变道</li>
+        <li>手机：左右滑变道，上滑加速，下滑刹车</li>
+        <li>常态限速 <b>80</b>，施工区限速 <b>40</b>，测速摄像头会抓拍</li>
+        <li>车况归零就收工；跑完 3000 m 即安全贯通</li>
+      </ul>
+      <button id="startBtn" class="cta" type="button">开始作业</button>
+      <p class="foot">纯手写 Canvas · 无外部依赖 · 手机电脑都能跑</p>
+    </div>
+  </section>
+
+  <section id="result" class="screen" hidden>
+    <div class="card">
+      <h2 id="resTitle">安全贯通！</h2>
+      <div class="grade-row">
+        <div id="resGrade" class="grade">S</div>
+        <div id="resLabel" class="grade-label">零违规</div>
+      </div>
+      <div id="resStats" class="stats"></div>
+      <button id="againBtn" class="cta" type="button">再来一次</button>
+    </div>
+  </section>
+
+  <div id="pauseVeil" class="veil" hidden><span>已暂停 · 按 P 继续</span></div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
